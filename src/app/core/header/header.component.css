@@ -1,0 +1,10 @@
+.search {
+  margin: 0 auto;
+}
+
+button {
+  margin: 0 5px;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
