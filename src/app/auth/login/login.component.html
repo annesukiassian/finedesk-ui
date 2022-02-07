@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="w-50 mx-auto">
+        <form [formGroup]="loginForm">
+            <h2>Login</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                       formControlName="username">
+                <div
+                        class="form-text"
+                        *ngIf="!loginForm.get('username')?.valid && loginForm.get('username')?.touched"
+                >
+                    {{getErrorMessage('username')}}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+                <div class="form-text" *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched"
+                >
+                    {{getErrorMessage('password')}}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"
+                    (click)="postLogin()"
+                    [disabled]="!loginForm.valid">Login
+            </button>
+        </form>
+    </div>
+</div>
+
