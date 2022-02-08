@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {SignUpService} from "../../services/sign-up.service";
+import {SignUpService} from "../../core/services/sign-up.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,10 +12,8 @@ export class SignupComponent implements OnInit {
 
     signupForm: FormGroup = new FormGroup({})
     passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-    signupHttp;
 
-    constructor(signupHttp: SignUpService, private router: Router) {
-        this.signupHttp = signupHttp;
+    constructor(private signUpService: SignUpService, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -48,7 +46,7 @@ export class SignupComponent implements OnInit {
     }
 
     postSignup() {
-        this.signupHttp.signup(
+        this.signUpService.signup(
             {
                 firstName: this.signupForm.value.firstName,
                 lastName: this.signupForm.value.lastName,
@@ -56,8 +54,8 @@ export class SignupComponent implements OnInit {
                 password: this.signupForm.value.password,
                 matchingPassword: this.signupForm.value.confirmPassword
             }
-        ).subscribe(data=>{
-            console.log(data,'data')
+        ).subscribe(data => {
+            console.log(data, 'data')
         })
     }
 

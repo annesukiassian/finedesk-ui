@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {LoginServiceService} from "../../services/login-service.service";
+import {LoginService} from "../../core/services/login.service";
 import {Router} from "@angular/router";
+import {PathConstants} from "../../core/constants/path-constants";
 
 @Component({
     selector: 'app-login',
@@ -11,12 +12,10 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
     loginForm: FormGroup = new FormGroup({})
-    loginHttp;
     profile: Object;
 
 
-    constructor(loginHttp: LoginServiceService, private router: Router) {
-        this.loginHttp = loginHttp;
+    constructor(private loginService: LoginService, private router: Router) {
         this.profile = {}
     }
 
@@ -35,13 +34,12 @@ export class LoginComponent implements OnInit {
     }
 
     postLogin() {
-        this.loginHttp.login({
+        this.loginService.login({
             password: this.loginForm.value.password,
             username: this.loginForm.value.username
         }).subscribe(data => {
             this.profile = data;
-            this.router.navigateByUrl(`/profiles/${data.body.accessToken}`)
-            console.log(data.headers.get('accessToken'))
+            this.router.navigateByUrl(PathConstants.getProfilePath())
         })
     }
 }
