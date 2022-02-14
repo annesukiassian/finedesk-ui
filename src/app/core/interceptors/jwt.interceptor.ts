@@ -11,7 +11,9 @@ export class JwtInterceptor implements HttpInterceptor {
 
         const token = SessionStorageService.getToken();
 
-
+        req = req.clone({
+            setHeaders: { Authorization: `Bearer ${token}` }
+        });
 
         return next.handle(req);
     }

@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup = new FormGroup({})
     profile: Object;
 
-
     constructor(private loginService: LoginService, private router: Router) {
         this.profile = {}
     }

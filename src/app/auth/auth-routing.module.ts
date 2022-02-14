@@ -8,7 +8,7 @@ import {SignupComponent} from "./signup/signup.component";
 
 const routes: Routes = [
     {
-        path: PathConstants.ROOT,
+        path: PathConstants.ROOT_AUTH,
         component: LoginComponent
     },
     {

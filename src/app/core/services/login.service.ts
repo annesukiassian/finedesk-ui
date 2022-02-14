@@ -8,6 +8,7 @@ import {SessionStorageService} from "./session-storage.service";
 })
 export class LoginService {
 
+
     constructor(private http: ApiService) {
     }
 
@@ -16,5 +17,9 @@ export class LoginService {
             SessionStorageService.setToken(data.body.message)
             SessionStorageService.setUser(data.body.body);
         }))
+    }
+
+    autoLogin() {
+
     }
 }

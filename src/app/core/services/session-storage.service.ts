@@ -42,8 +42,12 @@ export class SessionStorageService {
         this.save(this.PROFILE, JSON.stringify(body));
     }
 
-    static getUser(): Object {
-        return <ProfileModel>this.get(this.PROFILE);
+    static getUser(): ProfileModel | undefined {
+        const profile: any = this.get(this.PROFILE) as ProfileModel
+        if (profile) {
+            return JSON.parse(profile);
+        }
+        return undefined;
     }
 
     static isAuthenticated(): boolean {

@@ -5,10 +5,10 @@ import {PathConstants} from "../core/constants/path-constants";
 import {ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
-    {
-        path: PathConstants.ROOT,
-        component: ProfileComponent
-    }
+    // {
+    //     path: PathConstants.ROOT_USER,
+    //     component: ProfileComponent
+    // }
 ]
 
 @NgModule({

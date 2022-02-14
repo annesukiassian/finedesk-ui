@@ -1,0 +1,30 @@
+.container {
+    width: 80%;
+    margin: 10px auto;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+}
+textarea {
+    margin-bottom: 10px;
+}
+.btn {
+    width: 100%;
+    background: #0dcaf0;
+    color: #fff;
+}
+
+.bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.images {
+    padding: 50px;
+}
+
+.images img {
+    width: 100%;
+}

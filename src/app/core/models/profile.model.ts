@@ -1,9 +1,8 @@
 export interface ProfileModel {
-
-    id: string
-    firstName: string
-    lastName: string
-    profilePhotoUrl: string
-    coverPhotoUrl: string
-
+    id: string;
+    username: string;
+    firstName: string;
+    lastName: string;
+    profilePhotoUrl: string;
+    coverPhotoUrl: string;
 }

@@ -4,15 +4,16 @@ export class PathConstants {
 
     public static readonly ROOT_USER = 'users';
 
-    public static readonly ROOT_AUTH = 'auth';
+    public static readonly ROOT_AUTH = 'login';
 
     public static readonly SIGNUP = 'signup';
 
     public static readonly LOGOUT = 'logout';
 
+    public static readonly PROJECT = 'projects';
 
     public static getPath(path: string) {
-        return '/' + path;
+        return `/` + path;
     }
 
     public static getLoginPath() {
@@ -21,7 +22,7 @@ export class PathConstants {
 
 
     public static getSignupPath() {
-        return this.getPath(this.ROOT_AUTH) + this.getPath(this.SIGNUP);
+        return this.getPath(this.SIGNUP);
     }
 
     static getProfilePath() {
@@ -30,5 +31,9 @@ export class PathConstants {
 
     static getLogoutPath() {
         return this.getPath(this.LOGOUT);
+    }
+
+    static getProjectPath() {
+        return this.getPath(this.PROJECT);
     }
 }
