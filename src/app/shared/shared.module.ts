@@ -7,7 +7,7 @@ import {RouterModule} from "@angular/router";
         RouterModule
     ],
     declarations: [
-        NotFoundComponent
+        NotFoundComponent,
 
     ],
     exports: [NotFoundComponent],

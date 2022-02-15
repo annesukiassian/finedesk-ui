@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class SignupComponent implements OnInit {
 
+    isSucceed = false;
     signupForm: FormGroup = new FormGroup({})
     passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
@@ -55,7 +56,9 @@ export class SignupComponent implements OnInit {
                 matchingPassword: this.signupForm.value.confirmPassword
             }
         ).subscribe(data => {
-            console.log(data, 'data')
+            console.log(data)
+            localStorage.setItem('message', data.body.message);
+            this.router.navigateByUrl("/")
         })
     }
 

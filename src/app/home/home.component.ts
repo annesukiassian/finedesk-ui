@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  message: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    const msg = JSON.stringify(localStorage.getItem('message'));
+    console.log(msg);
+    if (msg !== 'null') {
+      this.message = msg;
+    }
   }
 
 }
