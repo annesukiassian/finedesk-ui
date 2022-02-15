@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProjectService} from "../core/services/project.service";
+import {ProjectModel} from "../core/models/project.model";
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   message: string;
+  projects =[] as ProjectModel[];
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
     const msg = JSON.stringify(localStorage.getItem('message'));
@@ -16,6 +19,14 @@ export class HomeComponent implements OnInit {
     if (msg !== 'null') {
       this.message = msg;
     }
+    this.projectService.getProjects().subscribe( datas => {
+      for(let data of datas) {
+        let model = <ProjectModel>data.body;
+        this.projects.push(model)
+      }
+      this.message = '';
+      console.log(this.projects)
+    })
   }
 
 }
