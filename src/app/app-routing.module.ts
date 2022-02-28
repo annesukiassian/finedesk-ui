@@ -5,9 +5,11 @@ import {PathConstants} from "./core/constants/path-constants";
 import {HomeComponent} from "./home/home.component";
 import {ProfileComponent} from "./user/profile/profile.component";
 import {ProjectComponent} from "./user/project/project.component";
+import {VerificationComponent} from "./shared/verification/verification.component";
 
 
 const routes: Routes = [
+
     {
         path: PathConstants.ROOT,
         component: HomeComponent
@@ -23,6 +25,10 @@ const routes: Routes = [
     {
         path: PathConstants.PROJECT,
         component: ProjectComponent
+    },
+    {
+        path: PathConstants.CONFIRM,
+        component: VerificationComponent
     },
     {
         path: '**', component: NotFoundComponent

@@ -12,6 +12,9 @@ export class PathConstants {
 
     public static readonly PROJECT = 'projects';
 
+    public static readonly CONFIRM = 'verification/confirm/:token';
+
+
     public static getPath(path: string) {
         return `/` + path;
     }
